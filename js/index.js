@@ -5,26 +5,30 @@ welcome.addEventListener("mouseenter", () => {
 });
 
 const headerTwoLets = document.getElementById("letsGo");
-function showLetsGo() {
-  document.getElementById("letsGo").style.display = "visible";
-}
-function hideLetsGo() {
-  document.getElementById("letsGo").style.display = "none";
-}
-function showOrHide() {
-  if (document.getElementById("letsGo").style.display == "visible") {
-    hideLetsGo();
-  } else {
-    showLetsGo();
-  }
+headerTwoLets.addEventListener("mouseenter", () => {
+  headerTwoLets.style.visibility = "hidden";
+});
+
+headerTwoLets.addEventListener("mouseleave", function () {
+  setTimeout(visibleHeader, 550);
+});
+
+function visibleHeader() {
+  headerTwoLets.style.visibility = "visible";
 }
 
-headerTwoLets.addEventListener("click", () => {
-    if(headerTwoLets.style.visibility === "visible"){
-        display: hidden {
-            else {
-                display: visible
-            }
-        }
-    }
-});
+function zoom(event) {
+  event.preventDefault();
+
+  scale += event.deltaY * -0.01;
+
+  // Restrict scale
+  scale = Math.min(Math.max(0.125, scale), 4);
+
+  // Apply scale transform
+  wheelMove.style.transform = `scale(${scale})`;
+}
+
+let scale = 1;
+const wheelMove = document.querySelector(".wheel");
+wheelMove.onwheel = zoom;
