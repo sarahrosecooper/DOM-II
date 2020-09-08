@@ -70,8 +70,36 @@ function displayDate() {
   document.getElementById("emptySpace").innerHTML = Date();
 }
 
-// 7.)
+// 7.) load
+
+// alert when page is loaded
 
 window.addEventListener("load", (event) => {
   alert("Enjoy the ride!");
+});
+
+// 8.) refresh
+
+// upon refresh change image
+
+const laptop = document.querySelector(".destinationImage");
+
+window.addEventListener("resize", () => {
+  laptop.src =
+    "https://images.unsplash.com/photo-1593642634315-48f5414c3ad9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80";
+});
+
+// 9.)
+//
+const footerBackground = document.querySelector(".footer p");
+footerBackground.addEventListener("keydown", () => {
+  footerBackground.style.color = "red";
+});
+
+// 10.) preventDefault
+
+// prevent refresh upon nav
+
+$(".nav-link").click(function (event) {
+  event.preventDefault();
 });
