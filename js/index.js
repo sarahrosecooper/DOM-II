@@ -1,34 +1,28 @@
-// Your code goes here
+// make welcome to the fun bus goldenrod upon hover (mouseover)
+
 const welcome = document.querySelector("h2");
-welcome.addEventListener("mouseenter", () => {
+welcome.addEventListener("mouseover", () => {
   welcome.style.color = "goldenrod";
 });
 
-const headerTwoLets = document.getElementById("letsGo");
-headerTwoLets.addEventListener("mouseenter", () => {
-  headerTwoLets.style.visibility = "hidden";
+// change destination pink upon double click
+
+const letsGo = document.getElementById("letsGo");
+letsGo.addEventListener("mouseenter", () => {
+  letsGo.style.visibility = "hidden";
 });
 
-headerTwoLets.addEventListener("mouseleave", function () {
+// make reappear after 550 milliseconds
+letsGo.addEventListener("mouseleave", function () {
   setTimeout(visibleHeader, 550);
 });
 
+// to make visible
 function visibleHeader() {
-  headerTwoLets.style.visibility = "visible";
+  letsGo.style.visibility = "visible";
 }
 
-function zoom(event) {
-  event.preventDefault();
-
-  scale += event.deltaY * -0.01;
-
-  // Restrict scale
-  scale = Math.min(Math.max(0.125, scale), 4);
-
-  // Apply scale transform
-  wheelMove.style.transform = `scale(${scale})`;
-}
-
-let scale = 1;
-const wheelMove = document.querySelector(".wheel");
-wheelMove.onwheel = zoom;
+const pDestination = document.querySelector(".content-destination p");
+pDestination.addEventListener("dblclick", () => {
+  pDestination.style.color = "pink";
+});
